@@ -1,0 +1,23 @@
+﻿@using MvcStok.Models.Entity
+@model MvcStok.Models.Entity.TBLKATEGORILER
+@{
+    ViewBag.Title = "YeniKategori";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    @*<div>
+            <label>Kategori Adı</label>
+            <input type="text" class="form-control" name="KategoriAd" />
+
+        </div>
+        //(Burdaki yöntem de alttaki yöntem de olur. Ama alttaki daha kullanışlıdır.)*@
+    <div>
+        <label>Kategori Adı</label>
+        @Html.TextBoxFor(m => m.KategoriAd, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.KategoriAd, "", new { @style = "color:red" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Kategori Ekle</button>
+    </div>
+</form>

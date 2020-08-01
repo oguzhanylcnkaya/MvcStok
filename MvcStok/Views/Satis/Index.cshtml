@@ -1,0 +1,70 @@
+﻿
+@using MvcStok.Models.Entity
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<TBLSATISLAR>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>MÜŞTERİ AD</th>
+        <th>MÜŞTERİ SOYAD</th>
+        <th>ÜRÜN</th>
+        <th>ADET</th>
+        <th>FİYAT</th>
+    </tr>
+    <tbody>
+        @foreach (var satis in Model)
+        {
+            <tr>
+                <td>@satis.TBLMUSTERILER.MusteriAd</td>
+                <td>@satis.TBLMUSTERILER.MusteriSoyad</td>
+                <td>@satis.TBLURUNLER.UrunAd</td>
+                <td>@satis.Adet</td>
+                <td>@satis.Fiyat</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
+<a href="/Satis/YeniSatis/" class="btn btn-primary">Yeni Satış Ekle</a>
+
+
+@*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
+        Satış Yap
+    </button>
+    <div class="modal" id="Modal1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">SATIŞ YAPMA EKRANI</h2>
+                </div>
+                <form method="post" action="/Satis/YeniSatis">
+                    <div class="modal-body">
+                        <label>Ürün Adı</label>
+                        <input type="text" class="form-control" name="Urun" />
+                        @Html.TextBoxFor(m => m.UrunID, new { @class = "form-control" })
+                        @Html.DropDownListFor(m=>m.TBLURUNLER.UrunID, (List<SelectListItem>)ViewBag.urun, new { @class = "form-control" })
+                        <br />
+                        <label>Müşteri Adı Soyadı</label>
+                        <input type="text" class="form-control" name="Marka" />
+                        @Html.TextBoxFor(m => m.MusteriID, new { @class = "form-control" })
+                        <br />
+                        <label>Adet</label>
+                        @Html.TextBoxFor(m => m.Adet, new { @class = "form-control" })
+                        <br />
+                        <label>Fiyat</label>
+                        @Html.TextBoxFor(m => m.Fiyat, new { @class = "form-control" })
+                        <br />
+                        <button class="btn btn-success">Kaydet</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>*@
+

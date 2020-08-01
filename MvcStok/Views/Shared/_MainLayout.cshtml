@@ -1,0 +1,62 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/AnaSayfa/Index/">MVC Stok Takip</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/Kategori/Index/">Kategoriler</a></li>
+                <li><a href="/Urun/Index/">Ürünler</a></li>
+                <li><a href="/Musteri/Index/">Müşteriler</a></li>
+                <li><a href="/Satis/Index/">Satışlar</a></li>               
+                <li>
+                    <button style="padding-top:1em" type="button" class="btn-link" data-toggle="modal" data-target="#YardimModal">
+                        Yardım
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="modal" id="YardimModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 style="text-align:center" class="modal-title">YARDIM PANELİ</h2>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        <h3>OĞUZHAN YALÇINKAYA</h3>
+                        <br />
+                        <label>Bu uygulama yukarıda adı yazan şahıs tarafından yapılmıştır. Bir sorunuz varsa kendisine sormanız önemle duyurulur.</label>
+                        <h6>İyi Günler Dilerim...</h6>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger" type="button" data-dismiss="modal">Kapat</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        @RenderBody()
+    </div>
+
+</body>
+</html>
